@@ -14,7 +14,7 @@ import time
 
 import kernelci
 import kernelci.build
-import kernelci.config
+#import kernelci.config
 import kernelci.db
 from kernelci.legacy.cli import Args, Command, parse_opts
 import urllib
@@ -22,6 +22,8 @@ import requests
 import hashlib
 
 from base import Service, validate_url
+
+from config import load
 
 
 class Trigger(Service):
@@ -220,6 +222,6 @@ class cmd_run(Command):
 if __name__ == '__main__':
     opts = parse_opts('trigger', globals())
     yaml_configs = opts.get_yaml_configs() or 'config'
-    configs = kernelci.config.load(yaml_configs)
+    configs = load(yaml_configs)
     status = opts.command(configs, opts)
     sys.exit(0 if status is True else 1)
