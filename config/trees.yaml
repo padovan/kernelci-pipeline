@@ -106,6 +106,7 @@ trees:
 
   linux-pci:
     url: "https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git"
+    config: "drivers/pci/"
 
   mainline:
     url: 'https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git'
@@ -537,22 +538,6 @@ build_configs:
   linusw_for-next:
     <<: *linusw
     branch: 'for-next'
-
-  linux-pci_next: &linux-pci
-    tree: linux-pci
-    branch: 'next'
-    architectures:
-      - x86_64
-      - arm64
-      - arm
-
-  linux-pci_for-linus:
-    <<: *linux-pci
-    branch: 'for-linus'
-
-  linux-pci_for-kernelci:
-    <<: *linux-pci
-    branch: 'for-kernelci'
 
   mainline:
     <<: *base
